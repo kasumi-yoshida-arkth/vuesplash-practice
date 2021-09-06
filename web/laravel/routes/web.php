@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// APIのURL以外のリクエストに対してはindexを返す
+Route::get('/{any?}', fn() => view('index'))->where('any', '.+');
